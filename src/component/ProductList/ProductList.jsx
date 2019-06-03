@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'http2';
+import { connect } from 'react-redux';
 import getProduct from '../../reducer/indexReducer';
 
 class ProductList extends Component {
