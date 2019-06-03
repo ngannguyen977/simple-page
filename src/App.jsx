@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Menu from './component/Menu'
+import Menu from './component/Menu/Menu'
 import routes from './routes';
 
 

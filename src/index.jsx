@@ -4,11 +4,16 @@ import './index.css';
 import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
+import myReducer from './../reducer/index';
+import { Provider } from 'react-redux';
 
-function reducer(state, action) {
-    return 'State';
-}
-const store = createStore(reducer);
+// function reducer(state, action) {
+//     return 'State';
+// }
+const store = createStore(
+    myReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 const action = {
     type: 'changState',
     payload: {
@@ -18,7 +23,11 @@ const action = {
 };
 store.dispatch(action);
 
-ReactDOM.render( < App / > , document.getElementById('root'));
+ReactDOM.render( 
+    <Provider store = { store } >
+        <App />
+    </Provider> ,
+    document.getElementById('root'));
 
 
 // If you want your app to work offline and load faster, you can change
