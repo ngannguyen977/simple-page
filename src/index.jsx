@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './main.scss';
 import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
-import myReducer from '../../reducer/indexReducer';
+import myReducer from './reducers/index';
 import { Provider } from 'react-redux';
 
 // function reducer(state, action) {
@@ -23,7 +23,7 @@ const action = {
 };
 store.dispatch(action);
 
-ReactDOM.render( 
+ReactDOM.render(
     <Provider store = { store } >
         <App />
     </Provider> ,

@@ -27,9 +27,9 @@ const menus = [
 //custom menu
 const MenuLink = ({ label, to, activeOnlyWhenExact }) => {
     return (
-        <Route 
-            path={to} 
-            exact={activeOnlyWhenExact} 
+        <Route
+            path={to}
+            exact={activeOnlyWhenExact}
             children={({ match }) => {
             let active = match ? 'active' : '';
             return (
