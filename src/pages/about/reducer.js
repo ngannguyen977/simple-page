@@ -1,7 +1,9 @@
-export default function AboutReducer(state, action) {
+const initialState = {
+    state: []
+}
+export default function AboutReducer(state = initialState, action) {
     switch (action.type) {
 
-        default:
-            return state
+        default: return state
     }
 }

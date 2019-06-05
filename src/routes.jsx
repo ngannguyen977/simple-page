@@ -1,37 +1,36 @@
 import React from 'react';
-// import HomePage from './pages/HomePage/HomePage';
-// import AboutPage from './pages/AboutPage/AboutPage';
-// import ContactPage from './pages/ContactPage/ContactPage';
-// import ProductListPage from './pages/ProductListPage/ProductListPage';
-// import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-// import NewsComponent from './pages/news'
+import HomeComponent from '././pages/home/index';
+import AboutComponent from '././pages/about/index';
+import ContactComponent from '././pages/contact/index';
+import ProductComponent from '././pages/products/index';
+import NotFoundComponent from '././pages/not-found/index';
 
 
 const routes = [
-    // {
-    //     path: '/',
-    //     exact: true,
-    //     main: () => <HomePage />
-    // },
-    // {
-    //     path: '/about',
-    //     exact: false,
-    //     main: () => <AboutPage />
-    // },
-    // {
-    //     path: '/products List',
-    //     exact: false,
-    //     main: ({match}) => <ProductListPage match={match}/>
-    // },
-    // {
-    //     path: '/contact',
-    //     exact: false,
-    //     main: () => <ContactPage />
-    // },
-    // {
-    //     path: '',
-    //     exact: false,
-    //     main: () => <NotFoundPage />
-    // }
+    {
+        path: '/',
+        exact: true,
+        main: () => <HomeComponent />
+    },
+    {
+        path: '/about',
+        exact: false,
+        main: () => <AboutComponent />
+    },
+    {
+        path: '/products List',
+        exact: false,
+        main: ({match}) => <ProductComponent match={match}/>
+    },
+    {
+        path: '/contact',
+        exact: false,
+        main: () => <ContactComponent />
+    },
+    {
+        path: '',
+        exact: false,
+        main: () => <NotFoundComponent />
+    }
 ];
 export default routes;

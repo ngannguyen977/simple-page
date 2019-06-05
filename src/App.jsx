@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
+import './main.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Menu from './share-component/menu/menu'
+import Menu from './share-component/menu/menu';
+import Footer from './share-component/footer/footer'
 import routes from './routes';
 
 
@@ -17,6 +19,7 @@ class App extends Component {
                         {/* phương thức hiển thị ra nôi dung khi trùng khớp routes */}
                         {this.showContentMenus(routes)}
                     </Switch>
+                    <Footer />
                 </div>
             </Router>
         );
