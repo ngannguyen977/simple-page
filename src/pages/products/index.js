@@ -1,3 +1,3 @@
 import ProductComponent from './product-list'
 
-export default ProductComponent
+export default ProductComponent;
