@@ -9,7 +9,6 @@ import './home.scss';
 class Home extends Component {
     constructor(){
         super();
-        this.state={}
     }
     render() {
         return (
@@ -26,8 +25,7 @@ class Home extends Component {
                     <Categories />
 
                     <div className="container">
-                        <ProductComponent
-                     />
+                        <ProductComponent />
                     </div>
                 </div>
             </div>

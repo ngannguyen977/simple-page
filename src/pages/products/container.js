@@ -1,18 +1,20 @@
-import { connect } from 'react-redux'
+
+import { connect } from 'react-redux';
 import ProductList from './product-list';
 import { getProduct } from './reducer';
 
-const mapStateToProps = (state) => {
-    console.log('dam an banh cua cao', state.ProductReducer )
+//lấy dữ liệu từ store chuyển sang props
 
+const mapStateToProps = (state) => {
     return {
-        data: state.ProductReducer.dataProducts || {}
+        productShow: state.ProductReducer || {}
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        increment: () => dispatch({ type: 'INCREMENT' }),
         productFromStore: (pageIndex, pageSize) => dispatch(getProduct(pageIndex, pageSize))
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ProductList)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps)(ProductList)

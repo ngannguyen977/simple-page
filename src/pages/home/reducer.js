@@ -1,5 +1,5 @@
 const initialState = {
-    state: []
+    // state: []
 }
 export default function HomeReducer(state = initialState, action) {
     switch (action.type) {
