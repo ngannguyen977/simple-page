@@ -3,20 +3,23 @@ import mockApi from '../../mock-api/mock-products-api';
 import * as actions from '../../constant/actionTypes';
 
 export const getProduct = (pageIndex = 1, pageSize = 9) => {
+    // console.log('data',mockApi.getProducts(pageIndex, pageSize))
     return {
         type: actions.GET_PRODUCTS,
-        dataOfproducts: mockApi.getProducts(pageIndex, pageSize)
+        dataOfproducts: mockApi.getProducts()
     }
 
 }
 const initialState = {
-    products: []
 }
 export default function Reducer(state = initialState, action) {
     switch (action.type) {
         case actions.GET_PRODUCTS:
-            console.log('store data', state, action)
-            return {...state, dataProducts: action.dataOfProducts }
+            // log kiemtra xem da co data trên store chưa
+            console.log('state', state)
+            return  state.dataProducts = action.dataOfproducts;
+
+          //return state
         default:
             return state
     }

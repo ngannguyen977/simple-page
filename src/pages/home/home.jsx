@@ -9,7 +9,6 @@ import './home.scss';
 class Home extends Component {
     constructor(){
         super();
-        this.state={}
     }
     render() {
         return (
@@ -24,11 +23,9 @@ class Home extends Component {
                         <div className="col-md-6"><img className="img-responsive" alt="" src="http://noth.garden/wp-content/uploads/2018/01/noth-garden-blog-trai-nghiem-khong-gian-cua-vuon-noth-5-1100x733.jpg" /></div>
                     </div>
                     <Categories />
-                    
+
                     <div className="container">
-                        <ProductComponent
-                        productDataCon={this.props.productData}
-                        getProductFromStore={this.props.getProductFromStore}/>
+                        <ProductComponent />
                     </div>
                 </div>
             </div>
@@ -36,26 +33,7 @@ class Home extends Component {
     }
 
 }
-const mapStateToProps = (state) => {
-    //tham số là state
-    console.log('STATE', state)
 
-    return {
-        // lấy dứ liệu từ trong store ra chuyển thành props ( store đã được reducer xử lý)
-        productData: state.HomeReducer.dataProducts || {} // thêm cái này cho nó khỏi bị lỗi undefined
 
-    }
-}
-//chuyển ham thành props để thực thi action getProduct
-const mapDispatchToProps = dispatch => {
-return {
-    getProductFromStore: (pageIndex, pageSize) => dispatch(getProduct(pageIndex, pageSize)) // them param cho no'
-    // dispatching plain actions
-}
-}
-
-export default connect(
-mapStateToProps,
-mapDispatchToProps
-)(Home)
+export default Home
 

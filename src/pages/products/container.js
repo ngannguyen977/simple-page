@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
     //chuyển ham thành props để thực thi action getProduct
 const mapDispatchToProps = dispatch => {
     return {
-        getDataFromStore: () => dispatch(getData()),
+        // getDataFromStore: () => dispatch(getData()),
         getProductFromStore: (pageIndex, pageSize) => dispatch(getProduct(pageIndex, pageSize)) // them param cho no'
             // dispatching plain actions
     }
