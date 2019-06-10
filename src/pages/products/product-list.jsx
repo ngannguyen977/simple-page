@@ -6,6 +6,7 @@ class ProductList extends React.Component {
   render() {
     const PAGESIZE = 10 // set số lượng item hiển thị mặc định là 10
     const { data, total, pageIndex } = this.props.productDataCon // kiểu khai báo biến mới trong ES6
+   
     // sửa lại UI xíu để nó support phân trang
     let elements = (data || []).map(item => {
       return (
