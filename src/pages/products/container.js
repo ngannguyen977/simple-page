@@ -1,15 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import ProductList from './product-list';
+import { getProduct } from './reducer'
 
 const mapStateToProps = (state) => {
         //tham số là state
-        console.log('STATE', state)
+        console.log('state.productReducer.dataProducts', state)
 
         return {
-            // todo: state.todos[ownProps.id]
             // lấy dứ liệu từ trong store ra chuyển thành props ( store đã được reducer xử lý)
-            displayData: state.mocHuong.dulieu,
-            productData: state.mocHuong.dataProducts || {} // thêm cái này cho nó khỏi bị lỗi undefined
+            productData: state.ProductReducer.data || {} // thêm cái này cho nó khỏi bị lỗi undefined
 
         }
     }
@@ -25,4 +25,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(MocHuong)
+)(ProductList)

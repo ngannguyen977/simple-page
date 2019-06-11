@@ -3,6 +3,8 @@ class ProductItem extends Component {
 
     render() {
         let { items } = this.props
+     
+        //console.log('item',items)
         return (
             <div className="list--item col-md-4 " key={items.name}>
                 <figure>

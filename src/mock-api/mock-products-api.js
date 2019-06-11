@@ -1,4 +1,5 @@
 import products from './products.json'
+
 const getProducts = (pageIndex, pageSize) => {
     if (pageIndex < 0) {
         pageIndex = 0
