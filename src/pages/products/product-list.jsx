@@ -9,11 +9,9 @@ class ProductList extends React.Component {
     }
     componentDidMount() {
         //this.props.getProductFromStore()
-        callApi('','GET', null).then(res=>{
-            this.setState({
-                data: res.data
-            })
-        })
+       
+           this.props.getProductFromStore();
+        
     }
 
   //lên store lấy dữ liệu về
@@ -21,6 +19,7 @@ class ProductList extends React.Component {
   render() {
       
         const  data = this.props.productData;
+        // var {data} = this.state;
         return (
             <div className="container">
                 {this.showProducts(data)}

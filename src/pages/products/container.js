@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import ProductList from './product-list';
-import { getProduct } from './reducer'
+import { actGetProductsRequest } from './reducer'
 
 const mapStateToProps = (state) => {
         //tham số là state
@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         // getDataFromStore: () => dispatch(getData()),
-        getProductFromStore: (pageIndex, pageSize) => dispatch(getProduct(pageIndex, pageSize)) // them param cho no'
+        getProductFromStore: (pageIndex, pageSize) => dispatch(actGetProductsRequest(pageIndex, pageSize)) // them param cho no'
             // dispatching plain actions
     }
 }

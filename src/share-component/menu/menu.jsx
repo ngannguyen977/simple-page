@@ -39,7 +39,8 @@ const MenuLink = ({ label, to, activeOnlyWhenExact }) => {
                     </Link>
                 </li>
             )
-        }} />
+        }}
+         />
 
     )
 }
