@@ -1,5 +1,6 @@
 import React from 'react';
 import  ProductItem from './product-item';
+import callApi from '../../util/apiCall';
 
 class ProductList extends React.Component {
     constructor(props){
@@ -7,7 +8,12 @@ class ProductList extends React.Component {
         this.state = {}
     }
     componentDidMount() {
-        this.props.getProductFromStore()
+        //this.props.getProductFromStore()
+        callApi('','GET', null).then(res=>{
+            this.setState({
+                data: res.data
+            })
+        })
     }
 
   //lên store lấy dữ liệu về
