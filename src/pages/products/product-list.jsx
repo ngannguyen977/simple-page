@@ -1,6 +1,5 @@
 import React from 'react';
 import  ProductItem from './product-item';
-import callApi from '../../util/apiCall';
 
 class ProductList extends React.Component {
     constructor(props){
@@ -9,25 +8,46 @@ class ProductList extends React.Component {
     }
     componentWillMount() {
            this.props.getProductFromStore();
+           this.handleClick = this.handleClick.bind(this);
         
     }
+    handleClick(event) {
+        this.setState({
+          currentPage: Number(event.target.id)
+        });
+      }
+
 
   //lên store lấy dữ liệu về
   //mà du liệu phải được map từ state sang props ( phần này đã làm bên index.jsx)
   render() {
-      
-        const  data = this.props.productData;
-        // var {data} = this.state;
+    const PAGESIZE = 10 // set số lượng item hiển thị mặc định là 10
+    const {data,  total, pageIndex } = this.props.productData;
+        let max = total / PAGESIZE
+        let pagination = []
+        for (let i = 1; i < max; i++) {
+        pagination.push(<li className={pageIndex === i ? "active" : "inactive"}><a href="javascript:void(0)" alt="" onClick={() => this.props.getProductFromStore(i, PAGESIZE)}>{i}</a></li>)
+        }
         return (
-            <div className="container">
-                {this.showProducts(data)}
-            </div>
+           <div>
+                <div className="container">
+                    {this.showProducts(data)}
+                </div>
+                
+                <div>
+                    
+                    <nav aria-label="Page navigation">
+                    <ul className="pagination">
+                        {pagination}
+                    </ul>
+                    </nav>
+                </div>
+           </div>
         )
     }
 
   showProducts(data){
-   // const PAGESIZE = 10 // set số lượng item hiển thị mặc định là 10
-    //const { total, pageIndex } = this.props.productData // kiểu khai báo biến mới trong ES6
+
     let result = null;
     if(data.length > 0){
         return result = data.map((item, index) =>{
@@ -35,24 +55,6 @@ class ProductList extends React.Component {
             return <ProductItem  key={index} items ={item} />
         })
     }
-
-    // let max = total / PAGESIZE
-    // let pagination = []
-    // for (let i = 1; i < max; i++) {
-    //   pagination.push(<li className={pageIndex === i ? "active" : "inactive"}><a href="javascript:void(0)" alt="" onClick={() => this.props.getProductFromStore(i, PAGESIZE)}>{i}</a></li>)
-    // }
-    // return (
-    //   <div>
-    //     <div className="list">
-    //       {result}
-    //     </div>
-    //     <nav aria-label="Page navigation">
-    //       <ul className="pagination">
-    //         {pagination}
-    //       </ul>
-    //     </nav>
-    //   </div>
-    // )
     }
 }
 
