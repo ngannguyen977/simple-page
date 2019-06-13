@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         // getDataFromStore: () => dispatch(getData()),
-        getProductFromStore: (pageIndex, pageSize) => dispatch(actGetProductsRequest(pageIndex, pageSize)) // them param cho no'
+        getProductFromStore: (pageIndex, pageSize) => actGetProductsRequest(pageIndex, pageSize) // them param cho no'
             // dispatching plain actions
     }
 }

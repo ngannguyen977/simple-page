@@ -1,1 +1,1 @@
-export const API_URL = ' http://localhost:3000';
+export const API_URL = 'https://raw.githubusercontent.com/ngannguyen977/moc-huong-garden/master/src/redux/mock-api/products.json';

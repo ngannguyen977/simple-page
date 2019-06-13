@@ -7,9 +7,7 @@ class ProductList extends React.Component {
         super(props);
         this.state = {}
     }
-    componentDidMount() {
-        //this.props.getProductFromStore()
-       
+    componentWillMount() {
            this.props.getProductFromStore();
         
     }

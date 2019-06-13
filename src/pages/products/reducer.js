@@ -2,6 +2,7 @@ import mockApi from '../../mock-api/mock-products-api';
 import * as Types from '../../constant/actionTypes';
 import callApi from '../../util/apiCall';
 import { dispatch } from 'rxjs/internal/observable/range';
+import {API_URL} from '../../constant/config'
 
 
 // export const getProduct = (pageIndex = 1, pageSize = 9) => {
@@ -15,17 +16,21 @@ import { dispatch } from 'rxjs/internal/observable/range';
 
 // lấy dữ liệu sau khi gọi api lưu store
 export const actGetProductsRequest = (pageIndex = 1, pageSize = 9) => {
+
         return (dispatch) => {
-            return callApi('', 'GET', null).then(res => {
+    console.log('should run this')
+
+            callApi('', 'GET', null).then(res => {
+                console.log('response from URL',res)
                 dispatch(actGetProducts(res.data))
             })
         }
     }
     //gọi lên server lấy dữ liệu về
-export const actGetProducts = (pageIndex = 1, pageSize = 9) => {
+export const actGetProducts = (dulieu) => {
     return {
         type: Types.GET_PRODUCTS,
-        dataOfproducts:
+        dataOfproducts: dulieu
     }
 }
 const initialState = {}
