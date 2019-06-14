@@ -4,7 +4,7 @@ class ProductItem extends Component {
     render() {
         let { items } = this.props
      
-        //console.log('item',items)
+        console.log('icxbxcvbvcbncvtem',items)
         return (
             <div className="list--item col-md-4 " key={items.name}>
                 <figure>

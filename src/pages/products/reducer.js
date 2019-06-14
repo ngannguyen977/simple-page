@@ -17,9 +17,8 @@ export const actGetProductsRequest = (pageIndex = 1, pageSize = 9) => {
         let dataAfterPaging = []
             //gọi lên server lấy dữ liệu về
         callApi(API_URL, 'GET', null).then(res => {
-            console.log('should run this 1', res)
-                // xử lý phân trang ở client side cho object data
-            dataAfterPaging = res.slice(pageIndex, pageIndex * pageSize)
+            // xử lý phân trang ở client side cho object data
+            dataAfterPaging = res.data
             dispatch(actGetProducts(dataAfterPaging))
         })
     }
