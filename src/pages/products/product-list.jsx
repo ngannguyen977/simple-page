@@ -26,7 +26,7 @@ class ProductList extends React.Component {
         let max = total / PAGESIZE
         let pagination = []
         for (let i = 1; i < max; i++) {
-        pagination.push(<li className={pageIndex === i ? "active" : "inactive"}><a href="javascript:void(0)" alt="" onClick={() => this.props.getProductFromStore(i, PAGESIZE)}>{i}</a></li>)
+            pagination.push(<li className={pageIndex === i ? "active" : "inactive"}><a href="javascript:void(0)" onClick={() => this.props.getProductFromStore(i, PAGESIZE)}>{i}</a></li>)
         }
         return (
            <div>
@@ -35,7 +35,6 @@ class ProductList extends React.Component {
                 </div>
                 
                 <div>
-                    
                     <nav aria-label="Page navigation">
                     <ul className="pagination">
                         {pagination}
@@ -47,7 +46,6 @@ class ProductList extends React.Component {
     }
 
   showProducts(data){
-
     let result = null;
     if(data.length > 0){
         return result = data.map((item, index) =>{

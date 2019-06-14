@@ -1,7 +1,6 @@
 import * as Types from '../../constant/actionTypes';
 import callApi from '../../util/apiCall';
 import { API_URL } from '../../constant/config'
-import getpagination from '../../functions/pagination'
 
 // export const getProduct = (pageIndex = 1, pageSize = 9) => {
 //     console.log('data', mockApi.getProducts(pageIndex, pageSize))
@@ -14,15 +13,13 @@ import getpagination from '../../functions/pagination'
 
 // lấy dữ liệu sau khi gọi api lưu store
 export const actGetProductsRequest = (pageIndex = 1, pageSize = 9) => {
-    console.log('should run this')
     return (dispatch) => {
-        console.log('should run this')
+        let dataAfterPaging = []
             //gọi lên server lấy dữ liệu về
         callApi(API_URL, 'GET', null).then(res => {
-            console.log('response from URL', res.data)
+            console.log('should run this 1', res)
                 // xử lý phân trang ở client side cho object data
-
-            var dataAfterPaging = res.data.slice(pageIndex, pageIndex * pageSize)
+            dataAfterPaging = res.slice(pageIndex, pageIndex * pageSize)
             dispatch(actGetProducts(dataAfterPaging))
         })
     }

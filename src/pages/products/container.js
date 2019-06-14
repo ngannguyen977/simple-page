@@ -5,7 +5,7 @@ import { actGetProductsRequest } from './reducer'
 
 const mapStateToProps = (state) => {
         //tham số là state
-        console.log('state.productReducer.dataProducts', state)
+        // console.log('state.productReducer.dataProducts', state)
 
         return {
             // lấy dứ liệu từ trong store ra chuyển thành props ( store đã được reducer xử lý)
