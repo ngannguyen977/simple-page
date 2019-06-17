@@ -8,28 +8,36 @@ class ProductList extends React.Component {
     }
     componentWillMount() {
            this.props.getProductFromStore();
-           this.handleClick = this.handleClick.bind(this);
+           //this.handleClick = this.handleClick.bind(this);
         
     }
-    handleClick(event) {
-        this.setState({
-          currentPage: Number(event.target.id)
-        });
-      }
+    // handleClick(event) {
+    //     this.setState({
+    //       currentPage: Number(event.target.id)
+    //     });
+    //   }
 
 
   //lên store lấy dữ liệu về
   //mà du liệu phải được map từ state sang props ( phần này đã làm bên index.jsx)
   render() {
-    console.log('djashfdkjf',this.props.productData)
-    const PAGESIZE = 10 // set số lượng item hiển thị mặc định là 10
-    const {data,  total, pageIndex } = this.props;
+        const PAGESIZE = 10 // set số lượng item hiển thị mặc định là 10
+        const {data, total, pageIndex } = this.props.data;
+   
+    // const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+ 
+
         let max = total / PAGESIZE
+        console.log('phân trang',  this.max)
         let pagination = []
         for (let i = 1; i < max; i++) {
-            pagination.push(<li className={pageIndex === i ? "active" : "inactive"}><a href="" onClick={() => this.props.getProductFromStore(i, PAGESIZE)}>{i}</a></li>)
+            pagination.push(<li className={pageIndex === i ? "active" : "inactive"}>
+                    <button onClick={() => this.props.getProductFromStore(i, PAGESIZE)}>{i}</button>
+                </li>)
         }
+        
         return (
+            
            <div>
                 <div className="container">
                     {this.showProducts(data)}
@@ -51,7 +59,7 @@ class ProductList extends React.Component {
     if(data.length > 0){
        
         return result = data.map((item, index) =>{
-            console.log('xxxxxxxxxxxxxxxxxxxxxx')
+            
             //có props là items
             return <ProductItem  key={index} items ={item} />
         })

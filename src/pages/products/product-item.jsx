@@ -6,7 +6,7 @@ class ProductItem extends Component {
      
         console.log('icxbxcvbvcbncvtem',items)
         return (
-            <div className="list--item col-md-4 " key={items.name}>
+            <div className="list--item col-md-4 ">
                 <figure>
                     <img src={items.imageUrl} alt="" />
                     <header>
