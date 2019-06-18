@@ -13,14 +13,15 @@ import { API_URL } from '../../constant/config'
 
 // lấy dữ liệu sau khi gọi api lưu store
 export const actGetProductsRequest = (pageIndex = 1, pageSize = 9) => {
-    console.log('pageindex', pageIndex, pageSize)
+    console.log(`input có đúng ko vậy TÔ? page hiện tại = ${pageIndex},kích thước page = ${pageSize}`)
 
     return (dispatch) => {
-        let dataAfterPaging = []
-            //gọi lên server lấy dữ liệu về
+        // let dataAfterPaging = []
+        //gọi lên server lấy dữ liệu về
         callApi(API_URL, 'GET', null).then(res => {
             // xử lý phân trang ở client side cho object data
-            dataAfterPaging = res.data.data.slice(pageIndex, pageIndex * pageSize)
+            const dataAfterPaging = res.data.data.slice((pageIndex - 1) * pageSize, pageIndex * pageSize)
+            console.log(`output có đúng ko TÔ? dataAfterPaging=${dataAfterPaging}`)
             dispatch(actGetProducts(dataAfterPaging))
 
         })
