@@ -13,12 +13,13 @@
     display: -ms-flexbox;
     display: -webkit-box;
     display: flex;
+    margin-bottom: 30px;
 }
 
 .list--item figure {
     background: #fff;
-    // box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     position: relative;
+    text-align: left;
 }
 
 .list--item img {
@@ -27,14 +28,9 @@
 }
 
 .list--item figcaption {
-    padding: 6px 12px 12px;
+    padding: 10px 0 20px 0;
     font-size: 12px;
     color: #444;
-}
-
-.list--item header,
-.list--item figcaption {
-    padding-left: 25%;
 }
 
 .list--item header {
@@ -42,27 +38,31 @@
 }
 
 .list--item h2 {
-    font-size: 14px;
+    font-size: 15px;
     padding: 0 0 0;
     margin: 0;
+    color: #256357;
+    font-weight: bold;
 }
 
 .floater {
-    width: 33%;
-    height: 50px;
+    width: 25%;
+    height: 29px;
     background: #fbf627;
     position: absolute;
-    left: 0;
+    border-radius: 35px;
+    right: 10px;
+    top: 10px;
+    text-align: center;
+    line-height: 29px;
 }
 
-@media screen and (min-width: 1200px) {
-    .container {
-        width: 90%;
-    }
-    .list--item {
-        width: 20%;
-    }
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
 }
+
+@media screen and (min-width: 1200px) {}
 
 @media screen and (max-width: 768px) {
     .list--item {
@@ -227,6 +227,7 @@
         margin-bottom: 0;
     }
 }
+
 //PAGITON
 .navigation {
     margin: 40px 0;
@@ -293,7 +294,7 @@
     padding-left: 0;
     list-style: none;
     border-radius: .25rem;
-    justify-content: flex-end;
+    justify-content: center;
     margin: 20px 0;
     margin-bottom: 50px;
 }

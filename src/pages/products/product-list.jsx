@@ -39,7 +39,9 @@ class ProductList extends React.Component {
 
            <div>
                 <div className="container">
-                    {this.showProducts(data)}
+                    <div className="row-flex">
+                        {this.showProducts(data)}
+                    </div>
                 </div>
 
                 <div>

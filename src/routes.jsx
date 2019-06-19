@@ -4,6 +4,7 @@ import AboutComponent from '././pages/about/index';
 import ContactComponent from '././pages/contact/index';
 import ProductComponent from '././pages/products/index';
 import NotFoundComponent from '././pages/not-found/index';
+import productDetail from './pages/products/product-detail';
 
 
 const routes = [
@@ -21,6 +22,11 @@ const routes = [
         path: '/products List',
         exact: false,
         main: ({match}) => <ProductComponent match={match}/>
+    },
+    {
+        path: '/productDetail/:product_id',
+        exact: false,
+        main: () => <productDetail />
     },
     {
         path: '/contact',

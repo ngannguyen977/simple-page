@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import ProductComponent from '../products/index';
 import Categories from '../products/product-categories';
-import { getProduct } from '../products/reducer';
-import HomeReducer from '../../pages/home/reducer';
 import './home.scss';
 
 class Home extends Component {
@@ -14,9 +11,9 @@ class Home extends Component {
     render() {
         return (
             <div className="home-page">
-
+                
                 <div className="container">
-                    <div className="row">
+                    <div className="row row-flex">
                         <div className="col-md-6 short-intro">
                             <h3>YÊU TẤT CẢ VẺ ĐẸP MỘC MẠC ĐẾN TỪ THIÊN NHIÊN</h3>
                             <p>Chắc hẳn bạn đã từng biết đến hoặc đã từng được nghe tới NOTH Garden, một không gian tràn ngập cây giữa những ngóc ngách của Hà Nội. </p>

@@ -1,6 +1,32 @@
+.navbar-nav {
+    float: none;
+    background: #fff;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #256357;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+    background: transparent;
+}
+
+.navbar-nav>li {
+    display: inline-block;
+    text-transform: uppercase;
+    float: none !important;
+}
+
 .short-intro {
     background: #256357;
     color: #fff;
+    padding: 7% 35px;
+}
+
+.short-intro h3 {
+    font-size: 35px;
 }
 
 //PAGITON

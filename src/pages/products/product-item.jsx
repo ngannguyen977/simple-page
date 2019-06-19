@@ -11,6 +11,7 @@ class ProductItem extends Component {
                     <img src={items.imageUrl} alt="" />
                     <header>
                         <div className="floater">
+                            Ưa nắng
                             {DataTransferItemList.unit}
                         </div>
                         <h2>{items.name}</h2>

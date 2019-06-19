@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Menu from './share-component/menu/menu';
 import Footer from './share-component/footer/footer'
 import routes from './routes';
+import logo from "./img/main_logo.png"
 
 
 class App extends Component {
@@ -12,8 +13,11 @@ class App extends Component {
         return (
             <Router>
                 <div className="App" >
+                    
                     { /* Menu */}
                     <Menu />
+                    {/*react ko import kieu nay duoc px */}
+                    <img src ={logo} alt=""/>
                     { /*CONTENT */}
                     <Switch>
                         {/* phương thức hiển thị ra nôi dung khi trùng khớp routes */}
