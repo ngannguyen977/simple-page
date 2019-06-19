@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
     console.log('dam ko co cua cao', state.ProductReducer.dataProducts)
     return {
         // lấy dứ liệu từ trong store ra chuyển thành props ( store đã được reducer xử lý)
-        data: state.ProductReducer.dataProducts || {} // thêm cái này cho nó khỏi bị lỗi undefined
+        data: state.ProductReducer.dataProducts || {}, // thêm cái này cho nó khỏi bị lỗi undefined
+        totalPage : state.ProductReducer.totalPage
     }
 
 }

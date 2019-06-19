@@ -9,7 +9,7 @@ class ProductList extends React.Component {
     componentWillMount() {
            this.props.getProductFromStore();
            //this.handleClick = this.handleClick.bind(this);
-        
+
     }
     // handleClick(event) {
     //     this.setState({
@@ -22,33 +22,33 @@ class ProductList extends React.Component {
   //mà du liệu phải được map từ state sang props ( phần này đã làm bên index.jsx)
   render() {
         const PAGESIZE = 10 // set số lượng item hiển thị mặc định là 10
-        const {data, pageIndex } = this.props;
-   
-    // const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
- 
+        const {data, pageIndex,totalPage } = this.props;
 
-        let max = 10
+    // const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+
+
+        // let max = 10
         let pagination = []
-        for (let i = 1; i < max; i++) {
+        for (let i = 1; i < totalPage; i++) {
             pagination.push(<li className={pageIndex === i ? "active" : "inactive"}>
                     <a onClick={() => this.props.getProductFromStore(i, PAGESIZE)}>{i}</a>
                 </li>)
         }
-        
+
         return (
-            
+
            <div>
                 <div className="container">
                     {this.showProducts(data)}
                 </div>
-                
+
                 <div>
                     <nav aria-label="Page navigation">
                         <ul className="pagination">
                             {pagination}
                         </ul>
                     </nav>
-                    
+
                 </div>
            </div>
         )
@@ -62,7 +62,7 @@ class ProductList extends React.Component {
             return <ProductItem  key={index} items ={item} />
         })
     }
-    
+
     }
 }
 
