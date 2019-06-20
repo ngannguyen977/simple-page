@@ -1,41 +1,62 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 
-class ProductDetail extends React.Component {
-    constructor() {
-    }
+class ProductDetail extends Component {
+    
     render() {
-        const itemDetail = this.props.items ?(
+     let { items } = this.props
+
+            //    return (
+            //     <div className="container">
+            //         <div className="col-md-8">
+            //             <div className="product-img">
+            //                 <img src={items.imageUrl} alt=""/>
+            //             </div>
+            //             <div className="product-des">
+            //                 <div className="product-tittle">
+            //                     <h2>{items.name}</h2>
+            //                 </div>
+            //                 <div className="product-description">
+            //                     <p>
+            //                         {items.description}
+            //                     </p>
+            //                 </div>
+            //             </div>
+            //         </div>
+            //     </div>
+            //    )
+        const items = this.props.?(
             <div>
-            <section className="profil  py-5 ">
-                <div className="container">
+                <section className="profil  py-5 ">
+                    <div className="container">
                         <div className="col-md-8">
-                           <div className="product-img">
-                            <img src={this.props.items.imageUrl} alt="" />
-                           </div>
+                            <div className="product-img">
+                                <img src={items.imageUrl} alt="" />
+                            </div>
                             <div className="product-des">
                                 <div className="product-tittle">
-                                    <h4 className="">{this.props.title}</h4>
+                                    <h2>{items.name}</h2>
                                 </div>
                                 <div className="product-description">
                                     <p>
-                                        {this.props.description}
+                                        {items.description}
                                     </p>
                                 </div>
                             </div>
                         </div>
-                </div>
-            </section>
-        </div>
+                    </div>
+                </section>
+            </div>
         ) : (
             <div classname="center">
                 Loading...
             </div>
         )
         return (
-           {itemDetail}
+           {items}
         )
+        
     }
 }
 const mapStateToProps = (state, ownProps) => {

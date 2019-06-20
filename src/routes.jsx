@@ -24,7 +24,7 @@ const routes = [
         main: ({match}) => <ProductComponent match={match}/>
     },
     {
-        path: '/productDetail/:product_id',
+        path: '/productDetail',
         exact: false,
         main: () => <productDetail />
     },
