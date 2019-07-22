@@ -11,13 +11,7 @@ class ProductList extends React.Component {
            //this.handleClick = this.handleClick.bind(this);
 
     }
-    // handleClick(event) {
-    //     this.setState({
-    //       currentPage: Number(event.target.id)
-    //     });
-    //   }
-
-
+    
   //lên store lấy dữ liệu về
   //mà du liệu phải được map từ state sang props ( phần này đã làm bên index.jsx)
   render() {

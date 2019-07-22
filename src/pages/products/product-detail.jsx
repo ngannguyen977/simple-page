@@ -5,37 +5,56 @@ import { connect } from 'react-redux'
 class ProductDetail extends Component {
     
     render() {
-     let { items } = this.props
-               return (
-                <div className="container">
-                    <div className="col-md-8">
-                        <div className="product-img">
-                            <img className="img-responsive" src={items.imageUrl} alt=""/>
-                        </div>
-                        <div className="product-des">
-                            <div className="product-tittle">
-                                <h2>{items.name}</h2>
-                            </div>
-                            <div className="product-description">
-                                <p>
-                                    {items.description}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+        let { itemDetail } = this.props.itemDetail ? (
+            <div className="product-detail">
+                <div className="list--item col-md-8">
+                    <img src={this.props.itemDetail.imageUrl} alt="" />
+                    <h2>{this.props.itemDetail.name}</h2>
+                    <p>{this.props.itemDetail.description}</p>
                 </div>
-               )
+                <div classname="col-md-4">
+                    <table>
+                        <tr>
+                            <td>Mã sản phẩm</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Đặc tính</td>
+                            <td>Ưa nắng</td>
+                        </tr>
+                        <tr>
+                            <td>Giá bán</td>
+                            <td>20000</td>
+                        </tr>
+                        <tr>
+                            <td>Chiều cao</td>
+                            <td>16cm</td>
+                        </tr>
+                        <tr>
+                            <td>Tình trạng</td>
+                            <td>3 cây</td>
+                        </tr>
+                    </table>
+                </div>
+                <button className="btn-order">Đặt hàng</button>
+            </div>
+        ):(
+            <div>Loading post...</div>
+        )
+        
+        return (
+            <div className="container">
+                { itemDetail}
+            </div>
+        )
     }
+    
 }
 const mapStateToProps = (state, ownProps) => {
-    console.log('STATE', state)
-    let id = ownProps.match.params.product_id;
+    let id = ownProps.match.params.id;
     return {
-        productItem: state.dataProducts.find(productItem =>productItem.id ===id)
-
+        itemDetail: state.items.find(itemDetail =>itemDetail.id ===id)
     }
 }
 
-export default connect(
-    mapStateToProps,
-)(ProductDetail)
+export default connect(mapStateToProps)(ProductDetail)

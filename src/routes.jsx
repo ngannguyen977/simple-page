@@ -19,12 +19,12 @@ const routes = [
         main: () => <AboutComponent />
     },
     {
-        path: '/products List',
+        path: '/products',
         exact: false,
         main: ({match}) => <ProductComponent match={match}/>
     },
     {
-        path: '/productDetail',
+        path: '/productDetail/:id',
         exact: false,
         main: () => <productDetail />
     },
