@@ -21,10 +21,10 @@ export const actGetProductsRequest = (pageIndex = 1, pageSize = 10) => {
     }
 
 }
-export const actGetProductByIdRequest = () => {
+export const actGetProductByIdRequest = (id) => {
     return (dispatch) => {
-        callApi(API_URL_PRODUCT_ID, 'GET', null).then(res => {
-            dispatch(actGetProductById())
+        callApi(`${API_URL_PRODUCT_ID}?id=${id}`, 'GET', null).then(res => {
+            dispatch(actGetProductById(id))
         })
     }
 }
@@ -40,7 +40,7 @@ export const actGetProducts = (dulieu, totalPage) => {
 export const actGetProductById = (dulieu) => {
     return {
         type: Types.GET_PRODUCT_ID,
-        dataOfproducts: dulieu,
+        dataOfproductID: dulieu
     }
 }
 
@@ -54,7 +54,7 @@ export default function Reducer(state = initialState, action) {
                 // return state.dataProducts = action.dataOfproducts;
                 return {...state, dataProducts: action.dataOfproducts, totalPage: action.totalPage }
             case Types.GET_PRODUCT_ID:
-                return {...state, dataProductId: action.dataOfproducts }
+                return {...state, dataProductId: action.dataOfproductId }
             default:
                 return state
 

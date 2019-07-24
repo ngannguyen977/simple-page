@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import { actGetProductByIdRequest } from './reducer'
 
 class ProductDetail extends Component {
-    
+    componentWillMount(){
+        this.props.getProductIdFromStore();
+    }
     render() {
-        let { itemDetail } = this.props.itemDetail ? (
+        console.log("adjkfkjd",this.props);
+        let { itemDetail } = this.props ? (
+            
             <div className="product-detail">
                 <div className="list--item col-md-8">
-                    <img src={this.props.itemDetail.imageUrl} alt="" />
-                    <h2>{this.props.itemDetail.name}</h2>
-                    <p>{this.props.itemDetail.description}</p>
+                    <img src={this.itemDetail.imageUrl} alt="" />
+                    <h2>{this.itemDetail.name}</h2>
+                    <p>{this.itemDetail.description}</p>
                 </div>
                 <div classname="col-md-4">
                     <table>
@@ -50,11 +54,22 @@ class ProductDetail extends Component {
     }
     
 }
-const mapStateToProps = (state, ownProps) => {
-    let id = ownProps.match.params.id;
+const mapStateToProps = state => {
+    //tham số là state
     return {
-        itemDetail: state.items.find(itemDetail =>itemDetail.id ===id)
+        // lấy dứ liệu từ trong store ra chuyển thành props ( store đã được reducer xử lý)
+        data: state.ProductReducer.dataProductId || {}, // thêm cái này cho nó khỏi bị lỗi undefined
+    }
+
+}
+const mapDispatchToProps = dispatch => {
+    //let id = ownProps.match.params.id;
+    return {
+        getProductIdFromStore: (id) => dispatch(actGetProductByIdRequest(id))
     }
 }
 
-export default connect(mapStateToProps)(ProductDetail)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ProductDetail)
