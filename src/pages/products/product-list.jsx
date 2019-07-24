@@ -1,5 +1,6 @@
 import React from 'react';
 import  ProductItem from './product-item';
+import {Link} from 'react-router-dom'
 
 class ProductList extends React.Component {
     constructor(props){
@@ -23,9 +24,9 @@ class ProductList extends React.Component {
 
         // let max = 10
         let pagination = []
-        for (let i = 1; i < totalPage; i++) {
-            pagination.push(<li className={pageIndex === i ? "active" : "inactive"}>
-                    <a onClick={() => this.props.getProductFromStore(i, PAGESIZE)}>{i}</a>
+        for (let i = 0; i < totalPage/PAGESIZE; i++) {
+            pagination.push(<li key={i} className={pageIndex === i ? "active" : "inactive"}>
+                    <a onClick={() => this.props.getProductFromStore(i, PAGESIZE)}>{i+1}</a>
                 </li>)
         }
 

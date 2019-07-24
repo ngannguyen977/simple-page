@@ -4,61 +4,64 @@ import { actGetProductByIdRequest } from './reducer'
 
 class ProductDetail extends Component {
     componentWillMount(){
-        this.props.getProductIdFromStore();
+         //lay id tren URl de show detail cua id do
+         let id = this.props.match.params.id
+        this.props.getProductIdFromStore(id);
     }
     render() {
-        console.log("adjkfkjd",this.props);
-        let { itemDetail } = this.props ? (
-            
-            <div className="product-detail">
-                <div className="list--item col-md-8">
-                    <img src={this.itemDetail.imageUrl} alt="" />
-                    <h2>{this.itemDetail.name}</h2>
-                    <p>{this.itemDetail.description}</p>
-                </div>
-                <div classname="col-md-4">
-                    <table>
-                        <tr>
-                            <td>Mã sản phẩm</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Đặc tính</td>
-                            <td>Ưa nắng</td>
-                        </tr>
-                        <tr>
-                            <td>Giá bán</td>
-                            <td>20000</td>
-                        </tr>
-                        <tr>
-                            <td>Chiều cao</td>
-                            <td>16cm</td>
-                        </tr>
-                        <tr>
-                            <td>Tình trạng</td>
-                            <td>3 cây</td>
-                        </tr>
-                    </table>
-                </div>
-                <button className="btn-order">Đặt hàng</button>
+        console.log('itemdetail',this.props)
+        let element =  (<div>Loading post...</div>)
+        const {itemDetail} = this.props
+        if (itemDetail){
+            element = (   <div className="product-detail">
+            <div className="list--item col-md-8">
+                <img src={itemDetail.imageUrl} alt="" />
+                <h2>{itemDetail.name}</h2>
+                <p>{itemDetail.description}</p>
             </div>
-        ):(
-            <div>Loading post...</div>
-        )
-        
+            <div className="col-md-4">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>Mã sản phẩm</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Đặc tính</td>
+                        <td>Ưa nắng</td>
+                    </tr>
+                    <tr>
+                        <td>Giá bán</td>
+                        <td>20000</td>
+                    </tr>
+                    <tr>
+                        <td>Chiều cao</td>
+                        <td>16cm</td>
+                    </tr>
+                    <tr>
+                        <td>Tình trạng</td>
+                        <td>3 cây</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button className="btn-order">Đặt hàng</button>
+        </div>)
+        }
         return (
             <div className="container">
-                { itemDetail}
+                { element}
             </div>
         )
     }
     
 }
 const mapStateToProps = state => {
+    console.log('state from store',state)
     //tham số là state
     return {
         // lấy dứ liệu từ trong store ra chuyển thành props ( store đã được reducer xử lý)
-        data: state.ProductReducer.dataProductId || {}, // thêm cái này cho nó khỏi bị lỗi undefined
+        itemDetail: state.ProductReducer.dataProductId || {}, // thêm cái này cho nó khỏi bị lỗi undefined
     }
 
 }

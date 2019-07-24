@@ -26,7 +26,7 @@ const routes = [
     {
         path: '/ProductDetail/:id',
         exact: false,
-        main: () => <ProductDetail />
+        main: ({match}) => <ProductDetail  match={match}/>
     },
     {
         path: '/contact',

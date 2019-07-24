@@ -5,7 +5,7 @@ class ProductItem extends Component {
     render() {
         let { items } = this.props
      
-        console.log('icxbxcvbvcbncvtem',items)
+        // console.log('icxbxcvbvcbncvtem',items)
         return (
                 <div className="list--item col-md-4 ">
                      <Link to={'/productDetail/'+items.id}>
