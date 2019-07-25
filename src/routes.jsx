@@ -5,7 +5,7 @@ import ContactComponent from '././pages/contact/index';
 import ProductComponent from '././pages/products/index';
 import NotFoundComponent from '././pages/not-found/index';
 import ProductDetail from './pages/products/product-detail';
-
+import ProductCetegoriesItem from './pages/products/product-categories';
 
 const routes = [
     {
@@ -27,6 +27,11 @@ const routes = [
         path: '/ProductDetail/:id',
         exact: false,
         main: ({match}) => <ProductDetail  match={match}/>
+    },
+    {
+        path: '/ProductCetegoriesItem/:id',
+        exact: false,
+        main: ({match}) => <ProductCetegoriesItem  match={match}/>
     },
     {
         path: '/contact',

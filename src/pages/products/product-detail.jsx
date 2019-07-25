@@ -5,7 +5,7 @@ import { actGetProductByIdRequest } from './reducer'
 class ProductDetail extends Component {
     componentWillMount(){
          //lay id tren URl de show detail cua id do
-         let id = this.props.match.params.id
+        let id = this.props.match.params.id
         this.props.getProductIdFromStore(id);
     }
     render() {
@@ -13,14 +13,15 @@ class ProductDetail extends Component {
         let element =  (<div>Loading post...</div>)
         const {itemDetail} = this.props
         if (itemDetail){
-            element = (   <div className="product-detail">
-            <div className="list--item col-md-8">
-                <img src={itemDetail.imageUrl} alt="" />
+            element = ( <div className="product-detail">
+            <div className="col-md-8">
+                <img className="img-responsive" src={itemDetail.imageUrl} alt="" />
                 <h2>{itemDetail.name}</h2>
                 <p>{itemDetail.description}</p>
             </div>
             <div className="col-md-4">
-                <table>
+               <div className=" cart-right">
+               <table>
                     <tbody>
                     <tr>
                         <td>Mã sản phẩm</td>
@@ -44,6 +45,7 @@ class ProductDetail extends Component {
                     </tr>
                     </tbody>
                 </table>
+               </div>
             </div>
             <button className="btn-order">Đặt hàng</button>
         </div>)

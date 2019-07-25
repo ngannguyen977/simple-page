@@ -6,12 +6,10 @@ import ProductReducer from './../pages/products/reducer';
 import NotFoundReducer from './../pages/not-found/reducer';
 
 const myReducer = combineReducers({
-
     AboutReducer,
     ContactReducer,
     HomeReducer,
     ProductReducer,
     NotFoundReducer
-
 });
 export default myReducer;
