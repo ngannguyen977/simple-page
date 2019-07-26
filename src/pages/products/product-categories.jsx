@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import index from '../../pages/products';
 import './products.scss';
 
 class Categories extends Component {

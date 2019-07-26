@@ -5,14 +5,14 @@ import { actGetProductsByCategoriesRequest } from './reducer'
 
 class ProductCetegoriesItem extends Component{
     componentWillMount(){
-        let id= this.props.match.params.id
-        this.props.getProductCategoryFromStore();
+        let id = this.props.match.params.id
+        this.getProductCategoryFromStore(id);
        
     }
     render() {
         const PAGESIZE=5
         const {data, pageIndex, totalPage} = this.props;
-
+        console.log̣̣̣('this props', this.props)
         let pagination = []
         for (let i = 0; i < totalPage/PAGESIZE; i++) {
             pagination.push(<li key={i} className={pageIndex === i ? "active" : "inactive"}>
@@ -39,12 +39,12 @@ class ProductCetegoriesItem extends Component{
             </div>
         )
     }
-    showProductByCategory(data=[], id){
+    showProductByCategory(data=[], index){
         let result = null;
         if( data.length > 0){
             return result = data.map((item, index) =>{
                 //có props là items
-                return <ProductItem  key={index} items ={item} />
+                return <ProductItem key={index} items ={item} />
             })
         }
     }
