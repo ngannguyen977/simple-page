@@ -6,6 +6,8 @@ import Menu from './share-component/menu/menu';
 import Footer from './share-component/footer/footer'
 import routes from './routes';
 import logo from "./img/main_logo.png"
+import banner from "./img/main-banner.jpg";
+
 
 
 class App extends Component {
@@ -17,6 +19,9 @@ class App extends Component {
                     { /* Menu */}
                     <Menu />
                     {/*react ko import kieu nay duoc px */}
+                    <div className="main-banner">
+                        <img src ={banner} alt=""/>
+                    </div>
                     <img src ={logo} alt=""/>
                     { /*CONTENT */}
                     <Switch>

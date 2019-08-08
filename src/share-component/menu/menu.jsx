@@ -4,22 +4,22 @@ import { Link, Route } from 'react-router-dom';
 const menus = [
 
     {
-        name: 'Home',
+        name: 'Trang chủ',
         to: '/',
         exact: true
     },
     {
-        name: 'About',
+        name: 'Về mộc hương',
         to: '/about',
         exact: false
     },
     {
-        name: 'Contact',
+        name: 'Liên hệ',
         to: '/contact',
         exact: false
     },
     {
-        name: 'Products',
+        name: 'Sản phẩm',
         to: '/products',
         exact: false
     }

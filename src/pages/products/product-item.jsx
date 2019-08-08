@@ -26,7 +26,6 @@ class ProductItem extends Component {
                         </figure>
                     </Link>
                 </div>
-            
         )
 
     }
